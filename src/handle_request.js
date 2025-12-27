@@ -57,10 +57,6 @@ export async function handleRequest(request) {
 
       headers.set('x-goog-api-key', 'AIzaSyBZyuRRgU9Aq0fIIf1vsAMARTcjLAo8KRA');
       headers.set( 'Content-Type', 'application/json');
-
-
-
-
       console.log('Request Sending to Gemini')
     console.log('targetUrl:'+targetUrl)
     console.log(headers)
@@ -87,6 +83,7 @@ export async function handleRequest(request) {
 
 
       // const { models } = JSON.parse(await response.text());
+      let { body } = response;
       console.log(`Gemini response response.ok=:`,response.ok);
       if (response.ok) {
           const { models } = JSON.parse(await response.text());
