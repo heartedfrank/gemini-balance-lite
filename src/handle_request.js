@@ -85,6 +85,7 @@ export async function handleRequest(request) {
     responseHeaders.delete('content-encoding');
     responseHeaders.set('Referrer-Policy', 'no-referrer');
 
+      console.log(`Gemini response=: ${response.body}`);
     return new Response(response.body, {
       status: response.status,
       headers: responseHeaders
