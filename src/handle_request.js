@@ -56,7 +56,13 @@ export async function handleRequest(request) {
       }
     }
 
-    console.log('Request Sending to Gemini')
+      headers.set('x-goog-api-key', 'AIzaSyBZyuRRgU9Aq0fIIf1vsAMARTcjLAo8KRA');
+      headers.set( 'Content-Type', 'application/json');
+
+
+
+
+      console.log('Request Sending to Gemini')
     console.log('targetUrl:'+targetUrl)
     console.log(headers)
 
