@@ -19,11 +19,15 @@ export async function handleRequest(request) {
   }
 
   if (pathname === '/verify' && request.method === 'POST') {
+      console.log(`handleRequest handleVerification return`);
     return handleVerification(request);
+
   }
 
   // 处理OpenAI格式请求
   if (url.pathname.endsWith("/chat/completions") || url.pathname.endsWith("/completions") || url.pathname.endsWith("/embeddings") || url.pathname.endsWith("/models")) {
+
+      console.log(`handleRequest openai return`);
     return openai.fetch(request);
   }
 
