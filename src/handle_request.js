@@ -116,4 +116,4 @@ export async function handleRequest(request) {
     headers: { 'Content-Type': 'text/plain' }
    });
 }
-};
+}
