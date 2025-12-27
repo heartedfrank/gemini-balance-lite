@@ -4,6 +4,8 @@ import openai from './openai.mjs';
 export async function handleRequest(request) {
 
   const url = new URL(request.url);
+
+   console.log(`handleRequest url=: ${url}`);
   const pathname = url.pathname;
   const search = url.search;
 
@@ -24,6 +26,10 @@ export async function handleRequest(request) {
   }
 
   const targetUrl = `https://generativelanguage.googleapis.com${pathname}${search}`;
+
+  //  const targetUrl = request.url;
+
+  console.log(`Gemini targetUrl=: ${targetUrl}`);
 
   try {
     const headers = new Headers();
