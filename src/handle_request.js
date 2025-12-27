@@ -86,8 +86,8 @@ export async function handleRequest(request) {
 
 
 
-      const { models } = JSON.parse(await response.text());
-      console.log(`Gemini response models=:`,models);
+      // const { models } = JSON.parse(await response.text());
+      console.log(`Gemini response models=:`,response.text());
       if (response.ok) {
           const { models } = JSON.parse(await response.text());
          const body = JSON.stringify({
