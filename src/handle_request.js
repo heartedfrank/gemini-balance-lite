@@ -84,7 +84,26 @@ export async function handleRequest(request) {
     responseHeaders.delete('content-encoding');
     responseHeaders.set('Referrer-Policy', 'no-referrer');
 
-      console.log(`Gemini response=:`,response.body);
+
+
+
+
+      if (response.ok) {
+          const { models } = JSON.parse(await response.text());
+         const body = JSON.stringify({
+              object: "list",
+              data: models.map(({ name }) => ({
+                  id: name.replace("models/", ""),
+                  object: "model",
+                  created: 0,
+                  owned_by: "",
+              })),
+          }, null, "  ");
+          console.log(`Gemini response=:`,body);
+      }
+
+
+
     return new Response(response.body, {
       status: response.status,
       headers: responseHeaders
