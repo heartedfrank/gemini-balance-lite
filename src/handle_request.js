@@ -69,6 +69,9 @@ export async function handleRequest(request) {
 
     console.log("Call Gemini Success")
 
+      console.log(`HTTP error! status: ${response.status}`);
+
+
     const responseHeaders = new Headers(response.headers);
 
     console.log('Header from Gemini:')
@@ -84,10 +87,9 @@ export async function handleRequest(request) {
 
       // const { models } = JSON.parse(await response.text());
       let { body } = response;
-      console.log(`Gemini response response.ok=:`,response.ok);
       if (response.ok) {
           const { models } = JSON.parse(await response.text());
-         const body = JSON.stringify({
+          body = JSON.stringify({
               object: "list",
               data: models.map(({ name }) => ({
                   id: name.replace("models/", ""),
@@ -96,7 +98,6 @@ export async function handleRequest(request) {
                   owned_by: "",
               })),
           }, null, "  ");
-          console.log(`Gemini response=:`,body);
       }
 
 
