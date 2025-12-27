@@ -1,6 +1,5 @@
 import { handleVerification } from './verify_keys.js';
 import openai from './openai.mjs';
-
 export async function handleRequest(request) {
 
   const url = new URL(request.url);
@@ -85,7 +84,7 @@ export async function handleRequest(request) {
     responseHeaders.delete('content-encoding');
     responseHeaders.set('Referrer-Policy', 'no-referrer');
 
-      console.log(`Gemini response=: ${response.body}`);
+      console.log(`Gemini response=:`,response.body);
     return new Response(response.body, {
       status: response.status,
       headers: responseHeaders
