@@ -9,6 +9,8 @@ export async function handleRequest(request) {
   const pathname = url.pathname;
   const search = url.search;
 
+    console.log(`handleRequest pathname=: ${pathname}`);
+    console.log(`handleRequest search=: ${search}`);
   if (pathname === '/' || pathname === '/index.html') {
     return new Response('Proxy is Running!  More Details: https://github.com/tech-shrimp/gemini-balance-lite', {
       status: 200,
